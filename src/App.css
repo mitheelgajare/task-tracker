@@ -1,38 +1,47 @@
-.App {
-  text-align: center;
+.list-item {
+    margin: 30px;
+    padding: 15px;
+    border: 2px solid black;
+    width: 300px;
+    text-align: left;
+    font-family: 'Quicksand', sans-serif;
+    position: relative;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+
+.inp-field {
+  font-family: 'Quicksand', sans-serif;
+  height: 20px;
+  width: 300px;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+body {
+  background: linear-gradient(to right, #03fcd7, #03c6fc, #0384fc, #0318fc);
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
+#sub {
+  width: 100px;
   color: white;
+  background-color: #212121;
+  animation-name: swoop;
+  animation-duration: 3s;
 }
 
-.App-link {
-  color: #61dafb;
+
+@keyframes swoop{
+  from{
+    transform: translateX(-400px);
+  }
+  
+  to{
+    transform: translateX(0);
+  }
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+
+.del {
+  position: absolute;
+  right: 10px;
+  background-color: #212121;
+  color: white;
 }
