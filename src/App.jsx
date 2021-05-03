@@ -1,10 +1,20 @@
 import React from 'react'
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import './App.css'
 
 const App = () => {
   const [inputField, setInputField] = useState('')
   const [fields, setFields] = useState([])
+
+  useEffect(() => {
+    const data = localStorage.getItem("task-tracker-tasks")
+    setFields(JSON.parse(data))
+  }, [])
+
+
+  useEffect(() => {
+    localStorage.setItem("task-tracker-tasks", JSON.stringify(fields))
+  })
 
   const addField = (e) => {
     e.preventDefault()
@@ -13,6 +23,7 @@ const App = () => {
     setFields(copy)
     setInputField('')
   }
+
 
 
   const handleDelete = (name) => {
@@ -28,7 +39,7 @@ const App = () => {
         <div>
           <center>
         <form action="" autoComplete="off" onSubmit={addField}>
-            <input className="inp-field" type="text" value={inputField} onChange={e => setInputField(e.target.value)}/>
+            <input className="inp-field" type="text" required value={inputField} onChange={e => setInputField(e.target.value)}/>
             <br/><br/>
             <button id="sub">Add Task</button>
         </form>
